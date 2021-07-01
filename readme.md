@@ -1,4 +1,4 @@
-## TJUThesisXeLatexTemplate
+## TJUThesis XeLateX Template
 
 本模版为天津大学博士/硕士毕业论文模版，按照《天津大学关于博士、硕士学位论文统一格式的规定》修改而成。(Forked from code.google.com/p/tjuthesis)
 
