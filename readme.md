@@ -11,3 +11,6 @@
 使用XeLeTeX的原因：之前的pdfLaTeX模版只能用在TeX Live 2014及以前版本或MikTeX/CTeX 2.9及以前版本（如果想使用pdfLaTeX，Windows倒是可以考虑直接用CTeX，最新版的CTeX版本号是2.9，不过自带的WinEdt 7.0不支持高分屏，可手动升级，也可以用其他编辑器；Mac上找低版本的MacTeX是个比较抓狂的事情）。本模版可完美跨平台，已在Windows/Mac/Linux上测试通过，并可用于最新版的TeX Live、MikTeX和MacTeX。
 
 如有同学有意向一起完善此模版，欢迎交流。联系方式：songxiaolin2009@163.com
+
+更新日志：
+2021-09-26 添加了各模版的封面页和独创性声明页
