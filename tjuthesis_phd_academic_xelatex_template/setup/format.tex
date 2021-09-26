@@ -1,0 +1,373 @@
+% !Mode:: "TeX:UTF-8"
+
+\newcommand{\yihao}{\fontsize{26pt}{26pt}\selectfont}
+\newcommand{\xiaoyi}{\fontsize{24pt}{24pt}\selectfont}
+\newcommand{\erhao}{\fontsize{22pt}{1.25\baselineskip}\selectfont}
+\newcommand{\xiaoer}{\fontsize{18pt}{18pt}\selectfont}
+\newcommand{\sanhao}{\fontsize{16pt}{16pt}\selectfont}
+\newcommand{\xiaosan}{\fontsize{15pt}{15pt}\selectfont}
+\newcommand{\sihao}{\fontsize{14pt}{14pt}\selectfont}
+\newcommand{\xiaosi}{\fontsize{12pt}{20pt}\selectfont}
+\newcommand{\wuhao}{\fontsize{10.5pt}{10.5pt}\selectfont}
+\newcommand{\xiaowu}{\fontsize{9pt}{9pt}\selectfont}
+\setmainfont{Times New Roman}
+\setsansfont{Arial}
+%\setmonofont{Courier New}
+\setCJKfamilyfont{song}{[simsun.ttc]}
+\setCJKfamilyfont{fs}{[simfang.ttf]}
+\setCJKfamilyfont{kai}{simkai.ttf}
+\setCJKfamilyfont{hei}{[simhei.ttf]}
+\newcommand{\song}{\CJKfamily{song}} 
+\newcommand{\fs}{\CJKfamily{fs}} 
+\newcommand{\kai}{\CJKfamily{kai}} 
+\newcommand{\hei}{\CJKfamily{hei}} 
+
+\newcommand\prechaptername{第}
+\newcommand\postchaptername{章}
+
+\setitemize{leftmargin=3em,itemsep=0em,partopsep=0em,parsep=0em,topsep=-0em}
+\setenumerate{leftmargin=3em,itemsep=0em,partopsep=0em,parsep=0em,topsep=0em}
+%\setlength{\baselineskip}{20pt}
+%\renewcommand{\baselinestretch}{1.38}
+
+\def\temp{\relax}
+\let\temp\addcontentsline
+\gdef\addcontentsline{\phantomsection\temp}
+%\def\quad{\hspace{1em}}
+%\def\qquad{\hspace{2em}}
+
+\newcounter{pubctr}
+\newenvironment{publist}{
+\begin{list}{[\arabic{pubctr}]} 
+    {
+     \usecounter{pubctr}
+     \setlength{\leftmargin}{2.5em}
+     \setlength{\itemindent}{0em}
+     \setlength{\labelsep}{1em}
+     \setlength{\rightmargin}{0em}
+     \setlength{\topsep}{0ex}
+     \setlength{\parsep}{0ex}
+     \setlength{\itemsep}{0ex} 
+     \setlength{\listparindent}{0pt} 
+    }}
+{\end{list}}
+
+\makeatletter
+\renewcommand\normalsize{
+  \@setfontsize\normalsize{12pt}{12pt} 
+  \setlength\abovedisplayskip{4pt}
+  \setlength\abovedisplayshortskip{4pt}
+  \setlength\belowdisplayskip{\abovedisplayskip}
+  \setlength\belowdisplayshortskip{\abovedisplayshortskip}
+  \setlength{\baselineskip}{20pt} 
+  \let\@listi\@listI}
+\def\defaultfont{\renewcommand{\baselinestretch}{1.0}\normalsize\selectfont}
+\renewcommand{\CJKglue}{\hskip -0.08pt plus 0.08\baselineskip} 
+
+\makeatother
+
+\renewcommand{\contentsname}{目\qquad 录}
+\setcounter{tocdepth}{2}
+\titlecontents{chapter}[0em]{\vspace{0pt}\xiaosi\song}
+             {\prechaptername~{\thecontentslabel}~\postchaptername\quad}{}
+             {\hspace{.5em}\titlerule*[5pt]{.}\xiaosi\contentspage}
+\titlecontents{section}[2em]{\vspace{0pt}\xiaosi\song}
+            {\thecontentslabel\quad}{}
+            {\hspace{.5em}\titlerule*[5pt]{.}\xiaosi\contentspage}
+\titlecontents{subsection}[4em]{\vspace{0pt}\xiaosi\song}
+            {\thecontentslabel\quad}{}
+            {\hspace{.5em}\titlerule*[5pt]{.}\xiaosi\contentspage}
+\titlecontents{subsubsection}[6em]{\vspace{0pt}\xiaosi\song}
+            {\thecontentslabel\quad}{}
+            {\hspace{.5em}\titlerule*[5pt]{.}\xiaosi\contentspage}
+
+\setcounter{secnumdepth}{4}
+\setlength{\parindent}{2em}
+\renewcommand{\chaptername}{\prechaptername~{\thechapter}~\postchaptername}
+\titleformat{\chapter}{\centering\xiaosan\hei}{\chaptername}{1em}{}
+\titlespacing{\chapter}{0pt}{33pt}{33pt}
+\titleformat{\section}{\sihao\hei}{\thesection}{1em}{}
+\titlespacing{\section}{0pt}{21pt}{21pt}
+\titleformat{\subsection}{\sihao\hei}{\thesubsection}{1em}{}
+\titlespacing{\subsection}{0pt}{13pt}{13pt}
+\titleformat{\subsubsection}{\xiaosi\hei}{\thesubsubsection}{1em}{}
+\titlespacing{\subsubsection}{0pt}{10pt}{10pt}
+
+\renewcommand{\tablename}{表}
+\renewcommand{\figurename}{图} 
+\renewcommand{\thefigure}{\arabic{chapter}-\arabic{figure}} 
+\renewcommand{\thetable}{\arabic{chapter}-\arabic{table}}
+\renewcommand{\theequation}{\arabic{chapter}-\arabic{equation}}
+\renewcommand{\thesubfigure}{(\alph{subfigure})}
+\renewcommand{\thesubtable}{(\alph{subtable})}
+\makeatletter
+\renewcommand{\p@subfigure}{\thefigure~}
+\makeatother
+
+\makeatletter
+\long\def\@makecaption#1#2{
+   \vskip\abovecaptionskip
+   \sbox\@tempboxa{\centering\wuhao\song{#1\quad #2} }
+   \ifdim \wd\@tempboxa >\hsize
+     \centering\wuhao\song{#1\quad #2} \par
+   \else
+     \global \@minipagefalse
+     \hb@xt@\hsize{\hfil\box\@tempboxa\hfil}
+   \fi
+   \vskip\belowcaptionskip}
+\makeatother
+\captiondelim{~~~~}
+
+\theoremstyle{plain}
+\theorembodyfont{\song\rmfamily}
+\theoremheaderfont{\hei\rmfamily}
+\newtheorem{theorem}{定理~}[chapter]
+\newtheorem{lemma}{引理~}[chapter]
+\newtheorem{axiom}{公理~}[chapter]
+\newtheorem{proposition}{命题~}[chapter]
+\newtheorem{corollary}{推论~}[chapter]
+\newtheorem{definition}{定义~}[chapter]
+\newtheorem{conjecture}{猜想~}[chapter]
+\newtheorem{example}{例~}[chapter]
+\newtheorem{remark}{注~}[chapter]
+\newtheorem{algorithm}{算法~}[chapter]
+\newenvironment{proof}{\noindent{\hei 证明：}}{\hfill $ \square $ \vskip 4mm}
+\theoremsymbol{$\square$}
+
+\makeatletter
+\renewcommand\frontmatter{\clearpage
+  \@mainmatterfalse
+  \pagenumbering{Roman}}
+\makeatother
+
+\renewcommand{\bibname}{参考文献}
+\makeatletter
+\renewenvironment{thebibliography}[1]{
+   \chapter*{\bibname}
+   \xiaosi
+   \list{\@biblabel{\@arabic\c@enumiv}}
+        {\renewcommand{\makelabel}[1]{##1\hfill}
+         \setlength{\baselineskip}{17pt}
+         \settowidth\labelwidth{0.5cm}
+         \setlength{\labelsep}{0pt}
+         \setlength{\itemindent}{0pt}
+         \setlength{\leftmargin}{\labelwidth+\labelsep}
+         \addtolength{\itemsep}{-0.7em}
+         \usecounter{enumiv}
+         \let\p@enumiv\@empty
+         \renewcommand\theenumiv{\@arabic\c@enumiv}}
+    \sloppy\frenchspacing
+    \clubpenalty4000
+    \@clubpenalty \clubpenalty
+    \widowpenalty4000
+    \interlinepenalty4000
+    \sfcode`\.\@m}
+   {\def\@noitemerr
+     {\@latex@warning{Empty `thebibliography' environment}}
+    \endlist\frenchspacing}
+\makeatother
+
+\addtolength{\bibsep}{3pt} 
+\setlength{\bibhang}{2em}
+
+\makeatletter
+    \def\@cite#1#2{\textsuperscript{[{#1\if@tempswa , #2\fi}]}}
+\makeatother
+\bibpunct{[}{]}{,}{s}{}{,}
+
+\makeatletter
+\def\ctitle#1{\def\@ctitle{#1}}\def\@ctitle{}
+\def\etitle#1{\def\@etitle{#1}}\def\@etitle{}
+\def\caffil#1{\def\@caffil{#1}}\def\@caffil{}
+\def\cmacrosubject#1{\def\@cmacrosubject{#1}}\def\@cmacrosubject{}
+\def\cmacrosubjecttitle#1{\def\@cmacrosubjecttitle{#1}}\def\@cmacrosubjecttitle{}
+\def\csubject#1{\def\@csubject{#1}}\def\@csubject{}
+\def\csubjecttitle#1{\def\@csubjecttitle{#1}}\def\@csubjecttitle{}
+\def\cgrade#1{\def\@cgrade{#1}}\def\@cgrade{}
+\def\cauthor#1{\def\@cauthor{#1}}\def\@cauthor{}
+\def\cauthortitle#1{\def\@cauthortitle{#1}}\def\@cauthortitle{}
+\def\csupervisor#1{\def\@csupervisor{#1}}\def\@csupervisor{}
+\def\csupervisortitle#1{\def\@csupervisortitle{#1}}\def\@csupervisortitle{}
+\def\yanjiufangxiang#1{\def\@yanjiufangxiang{#1}}\def\@yanjiufangxiang{}
+\def\yanjiufangxiangtitle#1{\def\@yanjiufangxiangtitle{#1}}\def\@yanjiufangxiangtitle{}
+\def\dabianriqi#1{\def\@dabianriqi{#1}}\def\@dabianriqi{}
+\def\zhuxi#1{\def\@zhuxi{#1}}\def\@zhuxi{}
+\def\zhuxizhicheng#1{\def\@zhuxizhicheng{#1}}\def\@zhuxizhicheng{}
+\def\zhuxidanwei#1{\def\@zhuxidanwei{#1}}\def\@zhuxidanwei{}
+\def\weiyuanone#1{\def\@weiyuanone{#1}}\def\@weiyuanone{}
+\def\weiyuanonezhicheng#1{\def\@weiyuanonezhicheng{#1}}\def\@weiyuanonezhicheng{}
+\def\weiyuanonedanwei#1{\def\@weiyuanonedanwei{#1}}\def\@weiyuanonedanwei{}
+\def\weiyuantwo#1{\def\@weiyuantwo{#1}}\def\@weiyuantwo{}
+\def\weiyuantwozhicheng#1{\def\@weiyuantwozhicheng{#1}}\def\@weiyuantwozhicheng{}
+\def\weiyuantwodanwei#1{\def\@weiyuantwodanwei{#1}}\def\@weiyuantwodanwei{}
+\def\weiyuanthree#1{\def\@weiyuanthree{#1}}\def\@weiyuanthree{}
+\def\weiyuanthreezhicheng#1{\def\@weiyuanthreezhicheng{#1}}\def\@weiyuanthreezhicheng{}
+\def\weiyuanthreedanwei#1{\def\@weiyuanthreedanwei{#1}}\def\@weiyuanthreedanwei{}
+\def\weiyuanfour#1{\def\@weiyuanfour{#1}}\def\@weiyuanfour{}
+\def\weiyuanfourzhicheng#1{\def\@weiyuanfourzhicheng{#1}}\def\@weiyuanfourzhicheng{}
+\def\weiyuanfourdanwei#1{\def\@weiyuanfourdanwei{#1}}\def\@weiyuanfourdanwei{}
+\def\cdate#1{\def\@cdate{#1}}\def\@cdate{}
+\def\declaretitle#1{\def\@declaretitle{#1}}\def\@declaretitle{}
+\def\declarecontent#1{\def\@declarecontent{#1}}\def\@declarecontent{}
+\def\authorizationtitle#1{\def\@authorizationtitle{#1}}\def\@authorizationtitle{}
+\def\authorizationcontent#1{\def\@authorizationcontent{#1}}\def\@authorizationconent{}
+\def\authorizationadd#1{\def\@authorizationadd{#1}}\def\@authorizationadd{}
+\def\authorsigncap#1{\def\@authorsigncap{#1}}\def\@authorsigncap{}
+\def\supervisorsigncap#1{\def\@supervisorsigncap{#1}}\def\@supervisorsigncap{}
+\def\signdatecap#1{\def\@signdatecap{#1}}\def\@signdatecap{}
+\long\def\cabstract#1{\long\def\@cabstract{#1}}\long\def\@cabstract{}
+\long\def\eabstract#1{\long\def\@eabstract{#1}}\long\def\@eabstract{}
+\def\ckeywords#1{\def\@ckeywords{#1}}\def\@ckeywords{}
+\def\ekeywords#1{\def\@ekeywords{#1}}\def\@ekeywords{}
+
+\pagestyle{fancy}
+
+\renewcommand{\chaptermark}[1]{\markboth{\chaptername~\ #1}{}}
+  \fancyhf{}
+  \fancyhead[CO]{\song\wuhao \leftmark}
+  \fancyhead[CE]{\song\wuhao 天津大学博士学位论文} %%%%%这里按需改成“博士”或“硕士”
+  \fancyfoot[C]{\song\xiaowu ~\thepage~}
+  \renewcommand{\headrulewidth}{0.7pt}
+  \renewcommand{\footrulewidth}{0pt}
+
+\fancypagestyle{plain}{
+    \fancyhf{}
+    \fancyhead[C]{\song\wuhao \leftmark}
+    \fancyfoot[C]{\song\xiaowu ~\thepage~ }
+    \renewcommand{\headrulewidth}{0.7pt}
+    \renewcommand{\footrulewidth}{0pt}
+}
+
+\fancypagestyle{only_foot}{
+    \fancyhf{}
+    \fancyfoot[C]{\song\xiaowu ~\thepage~ }
+    \renewcommand{\headrulewidth}{0pt}
+    \renewcommand{\footrulewidth}{0pt}
+}
+
+
+\newlength{\@title@width}
+\def\@put@covertitle#1{\makebox[\@title@width][s]{#1}}
+\def\makecover{
+\newpage
+\clearpage{\pagestyle{empty}\cleardoublepage} 
+   \phantomsection
+    \pdfbookmark[-1]{\@ctitle}{ctitle}
+
+    \begin{titlepage}
+      \vspace*{0.5cm}
+      \begin{center}
+
+      %\vspace*{0.1cm}
+      \begin{center}
+      \renewcommand{\baselinestretch}{1.25}
+      \song\erhao\textbf{\@ctitle}
+      \renewcommand{\baselinestretch}{1.25}
+      \end{center}
+      \vspace*{0.5cm}
+
+      \begin{center}
+      \renewcommand{\baselinestretch}{1.25}
+      \song\erhao\textbf{\@etitle}
+      \renewcommand{\baselinestretch}{1.25}
+      \end{center}
+
+      \vspace{5cm}
+      \setlength{\@title@width}{4em}
+
+      {\song\xiaosi
+      \renewcommand\arraystretch{1.2}{
+      \begin{tabular}{p{\@title@width}@{：}l}
+        \@put@covertitle{\textbf\@csubjecttitle} & \dlmu[5cm]{\textbf\@csubject} \\
+        \@put@covertitle{\textbf\@yanjiufangxiangtitle} & \dlmu[5cm]{\textbf\@yanjiufangxiang} \\
+        \@put@covertitle{\textbf\@cauthortitle} & \dlmu[5cm]{\textbf\@cauthor} \\
+        \@put@covertitle{\textbf\@csupervisortitle} & \dlmu[5cm]{\textbf\@csupervisor} \\
+      \end{tabular}
+      }}
+
+      \vspace*{1.5cm}
+
+      {\song\xiaosi
+      \renewcommand\arraystretch{1.3}{
+      \begin{tabular}{|p{3.2cm}<{\centering}|p{2.2cm}<{\centering}|p{2cm}<{\centering}|p{5.6cm}<{\centering}|}
+        \hline
+        \textbf{答辩日期} & \multicolumn{3}{c|}{\@dabianriqi} \\
+        \hline
+        \textbf{答辩委员会} & \textbf{姓名} & \textbf{职称} & \textbf{工作单位} \\
+        \hline
+        \textbf{主席} & \@zhuxi & \@zhuxizhicheng & \@zhuxidanwei \\
+        \hline
+        \multirow{4}{*}{\textbf{委员}} & \@weiyuanone & \@weiyuanonezhicheng & \@weiyuanonedanwei \\
+        \cline{2-4}
+        &\@weiyuantwo & \@weiyuantwozhicheng & \@weiyuantwodanwei\\
+        \cline{2-4}
+        &\@weiyuanthree & \@weiyuanthreezhicheng & \@weiyuanthreedanwei\\
+        \cline{2-4}
+        &\@weiyuanfour & \@weiyuanfourzhicheng & \@weiyuanfourdanwei\\
+        \hline
+      \end{tabular}
+      }}
+
+  \vspace*{1cm}
+  \song\sihao\@caffil \\
+  \song\sihao\@cdate
+
+\end{center}
+
+\newpage
+    \clearpage{\pagestyle{empty}\cleardoublepage} 
+    \thispagestyle{empty} 
+    \vspace*{1cm}
+    \renewcommand{\baselinestretch}{1}
+    \begin{center}\song\xiaoer{\@declaretitle}\end{center}\par
+    \vspace*{0.5cm}
+    \song\xiaosi{\@declarecontent}\par
+    \vspace*{1cm}
+    {\song\xiaosi
+    \@authorsigncap \makebox[2.5cm][s]{}
+    \@signdatecap \makebox[2cm][s]{} 年 \makebox[1cm][s]{} 月 \makebox[1cm][s]{} 日
+    }
+
+    \vspace*{3cm}
+    \begin{center}\song\xiaoer{\@authorizationtitle}\end{center}\par
+    \vspace*{1cm}
+    {
+    \song\xiaosi{\@authorizationcontent}%
+
+    \@authorizationadd\par
+    }
+
+    \vspace*{2cm}
+    {\song\xiaosi\setlength{\parindent}{-0.45em}
+    \begin{tabularx}{\textwidth}{ll}
+        \@authorsigncap \makebox[3.5cm][s]{}  & \@supervisorsigncap \makebox[3.5cm][s]{}   \\
+         &  \\
+        \@signdatecap \makebox[1.5cm][s]{} 年 \makebox[1cm][s]{} 月 \makebox[1cm][s]{} 日 &
+         \@signdatecap \makebox[1.5cm][s]{} 年 \makebox[1cm][s]{} 月 \makebox[1cm][s]{} 日 \\
+    \end{tabularx}
+    }
+\end{titlepage}
+
+\clearpage{\pagestyle{empty}\cleardoublepage} 
+\markboth{摘~要}{摘~要}
+\chapter*{\centering\song\erhao\textbf{摘\qquad 要}}
+\thispagestyle{only_foot}
+
+\setcounter{page}{1}
+\song\defaultfont
+\@cabstract
+
+\noindent
+{\song\sihao \textbf{关键词：}} \@ckeywords
+
+\clearpage{\pagestyle{empty}\cleardoublepage} 
+\markboth{ABSTRACT}{ABSTRACT}
+\chapter*{\centering\erhao\textbf{ABSTRACT}}
+\thispagestyle{only_foot}
+\@eabstract
+
+\noindent
+{\sihao\textbf{KEY WORDS：}}  \@ekeywords
+}
+
+\makeatother
